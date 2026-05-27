@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    background-color: #f4f7f8;
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: #1f2933;
+}
+
+.header {
+    background-color: #0b4f6c;
+    border-bottom: 1px solid #335c6d;
+}
+
+.navbar {
+    background-color: #0b4f6c !important;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.nav-link {
+    color: #d9eef7 !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #7eb8d9 !important;
+}
+
+.dropdown-menu {
+    background-color: #ffffff;
+    border: 1px solid #bdd9e5;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(11, 79, 108, 0.12);
+    font-size: 0.9rem;
+}
+
+.dropdown-item {
+    color: #335c6d;
+}
+
+.dropdown-item:hover {
+    background-color: #eaf4f8;
+    color: #0b4f6c;
+}
+
+#main-header {
+    background-color: #1b9acb !important;
+    margin-top: 0;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+#main-header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+section.container {
+    background-color: #ffffff;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(51, 92, 109, 0.10);
+}
+
+section h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #335c6d;
+    margin: 0;
+}
+
+footer {
+    background-color: #157fa8 !important;
+    color: #ffffff !important;
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+    padding: 0.4rem 0;
+}
