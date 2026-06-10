@@ -1,4 +1,4 @@
-package TechShop_Santiago.Santiago;
+package com.tienda;
 
 import java.util.Locale;
 import org.springframework.context.MessageSource;
