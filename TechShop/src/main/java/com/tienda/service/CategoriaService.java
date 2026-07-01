@@ -38,7 +38,7 @@ public class CategoriaService {
     @Transactional
     public void save(Categoria categoria, MultipartFile imagenFile) {
         categoria = categoriaRepository.save(categoria);
-        if (!imagenFile.isEmpty()) { //Si no está vacío... pasaron una imagen...            
+        if (!imagenFile.isEmpty() && firebaseStorageService.isAvailable()) {
             try {
                 String rutaImagen = firebaseStorageService.uploadImage(
                         imagenFile, "categoria",
@@ -46,7 +46,7 @@ public class CategoriaService {
                 categoria.setRutaImagen(rutaImagen);
                 categoriaRepository.save(categoria);
             } catch (IOException e) {
-
+                throw new IllegalStateException("Error al subir la imagen de la categoría", e);
             }
         }
     }

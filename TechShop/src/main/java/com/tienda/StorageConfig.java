@@ -21,11 +21,16 @@ public class StorageConfig {
     private String jsonFile;
 
     @Bean
-    public Storage storage() throws IOException {
+    public Storage storage() {
         ClassPathResource resource = new ClassPathResource(jsonPath + File.separator + jsonFile);
+        if (!resource.exists()) {
+            return null;
+        }
         try (InputStream inputStream = resource.getInputStream()) {
             GoogleCredentials credentials = GoogleCredentials.fromStream(inputStream);
             return StorageOptions.newBuilder().setCredentials(credentials).build().getService();
+        } catch (IOException e) {
+            return null;
         }
     }
     
