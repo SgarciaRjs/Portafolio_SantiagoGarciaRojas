@@ -34,6 +34,13 @@
                     <li class="nav-item px-2"><a class="nav-link" th:href="@{/producto/listado}">[[#{plantilla.productos}]]</a></li>
                     <li class="nav-item px-2"><a class="nav-link" th:href="@{/consultas/listado}">[[#{plantilla.consultas}]]</a></li>
                     <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                           aria-expanded="false">[[#{plantilla.extras}]]</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/pruebas/listado}">[[#{plantilla.asociaciones}]]</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
                             [[#{plantilla.admin}]]
                         </a>
@@ -72,7 +79,7 @@
             </div>
         </div>
     </nav>
-    <section id="main-header" class="py-2 bg-success text-white">
+    <section id="main-header" class="py-2 text-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -84,7 +91,7 @@
 </header>
 
 <!-- Fragmento #3  define el footer de las páginas, aparte de esto se podria incluir enlaces a redes socilaes y demás -->
-<footer th:fragment="footer" class="p-2 mt-5 bg-info text-white">
+<footer th:fragment="footer" class="p-2 mt-5 text-white">
     <p class="lead text-center">[[#{plantilla.derechos}]] &copy;</p>
 </footer>
 

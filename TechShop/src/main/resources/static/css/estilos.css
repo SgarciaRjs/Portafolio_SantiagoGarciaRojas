@@ -1,56 +1,60 @@
 body {
     margin: 0;
-    background-color: #f4f7f8;
+    background-color: #f8f9fa;
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-    color: #1f2933;
+    color: #2c3e50;
 }
 
 .header {
-    background-color: #0b4f6c;
-    border-bottom: 1px solid #335c6d;
+    background-color: #1a1a2e;
+    border-bottom: 1px solid #16213e;
 }
 
 .navbar {
-    background-color: #0b4f6c !important;
+    background-color: #1a1a2e !important;
     padding-top: 0.8rem;
     padding-bottom: 0.8rem;
 }
 
 .navbar-brand {
     color: #ffffff !important;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .nav-link {
-    color: #d9eef7 !important;
+    color: #ffffff !important;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
 .nav-link:hover {
-    color: #7eb8d9 !important;
+    color: #ffffff !important;
+    background-color: rgba(233, 69, 96, 0.2) !important;
 }
 
 .dropdown-menu {
     background-color: #ffffff;
-    border: 1px solid #bdd9e5;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(11, 79, 108, 0.12);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     font-size: 0.9rem;
 }
 
 .dropdown-item {
-    color: #335c6d;
+    color: #2c3e50;
+    font-weight: 500;
 }
 
 .dropdown-item:hover {
-    background-color: #eaf4f8;
-    color: #0b4f6c;
+    background-color: #f1f3f5;
+    color: #e94560;
 }
 
 #main-header {
-    background-color: #1b9acb !important;
+    background-color: #16213e !important;
     margin-top: 0;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
@@ -68,19 +72,19 @@ section.container {
     margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(51, 92, 109, 0.10);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 section h2 {
     font-size: 1.8rem;
-    font-weight: 500;
-    color: #335c6d;
+    font-weight: 600;
+    color: #1a1a2e;
     margin: 0;
 }
 
 footer {
-    background-color: #157fa8 !important;
+    background-color: #0f3460 !important;
     color: #ffffff !important;
     font-size: 0.9rem;
 }
@@ -88,4 +92,128 @@ footer {
 footer p {
     margin: 0;
     padding: 0.4rem 0;
+}
+
+/* Estilos para botones con texto más sobresaliente */
+.btn {
+    font-weight: 600 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.5rem 1.2rem;
+}
+
+.btn-primary {
+    background-color: #e94560 !important;
+    border-color: #e94560 !important;
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    background-color: #d63850 !important;
+    border-color: #d63850 !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary {
+    background-color: #6c757d !important;
+    border-color: #6c757d !important;
+    color: #ffffff !important;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268 !important;
+    border-color: #5a6268 !important;
+    color: #ffffff !important;
+}
+
+.btn-success {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #ffffff !important;
+}
+
+.btn-success:hover {
+    background-color: #218838 !important;
+    border-color: #218838 !important;
+    color: #ffffff !important;
+}
+
+.btn-danger {
+    background-color: #dc3545 !important;
+    border-color: #dc3545 !important;
+    color: #ffffff !important;
+}
+
+.btn-danger:hover {
+    background-color: #c82333 !important;
+    border-color: #c82333 !important;
+    color: #ffffff !important;
+}
+
+.btn-info {
+    background-color: #17a2b8 !important;
+    border-color: #17a2b8 !important;
+    color: #ffffff !important;
+}
+
+.btn-info:hover {
+    background-color: #138496 !important;
+    border-color: #138496 !important;
+    color: #ffffff !important;
+}
+
+.btn-warning {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800 !important;
+    border-color: #e0a800 !important;
+    color: #212529 !important;
+}
+
+/* Estilos para botones de navegación (tabs) */
+.nav-link {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-link:hover {
+    color: #e94560 !important;
+    background-color: #f8f9fa !important;
+}
+
+.nav-link.active {
+    color: #ffffff !important;
+    background-color: #e94560 !important;
+    font-weight: 700 !important;
+}
+
+.nav-underline .nav-link {
+    color: #2c3e50 !important;
+    font-weight: 600 !important;
+}
+
+.nav-underline .nav-link:hover {
+    color: #e94560 !important;
+}
+
+.nav-underline .nav-link.active {
+    color: #e94560 !important;
+    font-weight: 700 !important;
+}
+
+/* Eliminar bordes rojos de validación */
+input:invalid, textarea:invalid, select:invalid {
+    border-color: #ced4da !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #e94560 !important;
+    box-shadow: 0 0 0 0.25rem rgba(233, 69, 96, 0.25) !important;
 }
