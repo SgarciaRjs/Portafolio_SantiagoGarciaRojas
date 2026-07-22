@@ -23,14 +23,17 @@ body {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.nav-link {
+/* Links del navbar (barra superior oscura) */
+.navbar-nav > .nav-item > .nav-link,
+.navbar-nav .nav-item .nav-link {
     color: #ffffff !important;
     font-size: 0.95rem;
     font-weight: 600;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-.nav-link:hover {
+.navbar-nav > .nav-item > .nav-link:hover,
+.navbar-nav .nav-item .nav-link:hover {
     color: #ffffff !important;
     background-color: rgba(233, 69, 96, 0.2) !important;
 }
@@ -84,7 +87,7 @@ section h2 {
 }
 
 footer {
-    background-color: #0f3460 !important;
+    background-color: #0dcaf0 !important;
     color: #ffffff !important;
     font-size: 0.9rem;
 }
@@ -174,8 +177,9 @@ footer p {
     color: #212529 !important;
 }
 
-/* Estilos para botones de navegación (tabs) */
-.nav-link {
+/* Estilos para las pestañas de categorías (tabs) */
+.nav-underline .nav-link,
+.nav-pills .nav-link {
     color: #2c3e50 !important;
     font-weight: 600 !important;
     padding: 0.75rem 1.5rem !important;
@@ -183,28 +187,16 @@ footer p {
     transition: all 0.3s ease !important;
 }
 
-.nav-link:hover {
+.nav-underline .nav-link:hover,
+.nav-pills .nav-link:hover {
     color: #e94560 !important;
     background-color: #f8f9fa !important;
 }
 
-.nav-link.active {
+.nav-underline .nav-link.active,
+.nav-pills .nav-link.active {
     color: #ffffff !important;
     background-color: #e94560 !important;
-    font-weight: 700 !important;
-}
-
-.nav-underline .nav-link {
-    color: #2c3e50 !important;
-    font-weight: 600 !important;
-}
-
-.nav-underline .nav-link:hover {
-    color: #e94560 !important;
-}
-
-.nav-underline .nav-link.active {
-    color: #e94560 !important;
     font-weight: 700 !important;
 }
 
