@@ -25,13 +25,13 @@
                                 <div class="col-md-11 my-auto">
                                     <input class="form-control" id="password" type="password" name="password" th:placeholder="#{login.password}"/>
                                 </div>
-                            </div>
+                            </div>                            
                             <!-- Botones y enlaces -->
                             <div class="d-flex justify-content-around mt-4">
                                 <!-- Enlace de registro (con estilo de botón) -->
-                                <a th:href="@{/registro/nuevo}" class="btn btn-primary"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>
+                                <a th:href="@{/registro/nuevo}" class="btn btn-primary"><i class="fas fa-user-plus"></i> [[#{accion.registrar}]]</a>                                
                                 <!-- Enlace para recordar contraseña -->
-                                <a th:href="@{/registro/recordar}" class="btn btn-info"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a>
+                                <a th:href="@{/registro/recordar}" class="btn btn-info"><i class="fas fa-envelope"></i> [[#{accion.recordar}]]</a>                                
                                 <!-- Botón para enviar el formulario -->
                                 <button class="btn btn-success" type="submit"><i class="fas fa-sign-in-alt"></i> [[#{login.login}]]</button>
                             </div>

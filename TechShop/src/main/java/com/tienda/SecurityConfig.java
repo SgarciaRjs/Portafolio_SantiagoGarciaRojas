@@ -9,8 +9,13 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+import com.tienda.service.RutaService;
+import com.tienda.domain.Ruta;
 
 @Configuration
 @EnableWebSecurity
@@ -40,32 +45,40 @@ public class SecurityConfig {
         "/usuario/**", "/role/**", "/usuario_rol/**", "/ruta/**", "/constante/**"
     };
 
+    @Autowired
+    private RutaService rutaService;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers(PUBLIC_URLS).permitAll()
-                .requestMatchers(USUARIO_URLS).hasAnyRole("USUARIO", "VENDEDOR", "ADMIN")
-                .requestMatchers(VENDEDOR_O_ADMIN_URLS).hasAnyRole("VENDEDOR", "ADMIN")
-                .requestMatchers(ADMIN_URLS).hasRole("ADMIN")
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
+        var rutas = rutaService.getRutas();
+        http.authorizeHttpRequests(requests -> {
+            for (Ruta ruta : rutas) {
+                if (ruta.isRequiereRol()) {
+                    requests.requestMatchers(ruta.getRuta()).hasRole(ruta.getRol().getRol());
+                } else {
+                    requests.requestMatchers(ruta.getRuta()).permitAll();
+                }
+            }
+            requests.anyRequest().authenticated();
+        });
+        http.formLogin(form -> form // Configuración de formulario de login
                 .loginPage("/login")
+                .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/", true)
+                .failureUrl("/login?error=true")
                 .permitAll()
-            )
-            .logout(logout -> logout
-                .logoutSuccessUrl("/")
+        ).logout(logout -> logout // Configuración de logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout=true")
+                .invalidateHttpSession(true)
+                .deleteCookies("JSESSIONID")
                 .permitAll()
-            )
-            .exceptionHandling(ex -> ex
+        ).exceptionHandling(exceptions -> exceptions // Manejo de excepciones
                 .accessDeniedPage("/acceso_denegado")
-            )
-            .sessionManagement(session -> session
-                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-            );
-
+        ).sessionManagement(session -> session // Configuración de sesiones
+                .maximumSessions(1)
+                .maxSessionsPreventsLogin(false)
+        );
         return http.build();
     }
 
@@ -93,6 +106,13 @@ public class SecurityConfig {
                 .roles("USUARIO")
                 .build();
         return new InMemoryUserDetailsManager(juan, rebeca, pedro);
+   }
+
+    @Autowired
+    public void configurerGlobal(AuthenticationManagerBuilder build,
+                                 @Lazy PasswordEncoder passwordEncoder,
+                                 @Lazy UserDetailsService userDetailsService) throws Exception {
+        build.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
     }
 
 }
