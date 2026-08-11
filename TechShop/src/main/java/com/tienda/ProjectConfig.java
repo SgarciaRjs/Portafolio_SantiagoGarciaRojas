@@ -42,7 +42,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
-        slr.setDefaultLocale(Locale.getDefault());
+        slr.setDefaultLocale(new Locale("es", "CR"));
         slr.setLocaleAttributeName("session.current.locale");
         slr.setTimeZoneAttributeName("session.current.timezone");
         return slr;

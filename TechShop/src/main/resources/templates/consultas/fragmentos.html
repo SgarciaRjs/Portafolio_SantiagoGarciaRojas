@@ -32,10 +32,10 @@
             <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
                 <div th:each="p : ${productos}" class="col">
                     <div class="card h-100 shadow-sm">
-                        <div class="d-flex justify-content-center align-items-center bg-light p-3" style="height: 200px;">
-                            <img th:src="${p.rutaImagen}" class="img-fluid" 
+                        <div class="d-flex justify-content-center align-items-center bg-light" style="height: 200px; overflow: hidden;">
+                            <img th:src="${p.rutaImagen}" class="w-100 h-100" 
                                  th:alt="${p.descripcion}" 
-                                 style="max-height: 100%; object-fit: contain;"/>
+                                 style="object-fit: cover;"/>
                         </div>
                         <div class="card-header bg-white">
                             <h5 class="card-title text-center text-truncate mb-0" th:text="${p.descripcion}">Título</h5>
